@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data>
+                <record id="make_bill_form" model="ir.ui.view">
+                        <field name="name">make.bill.form</field>
+                        <field name="model">make.bill</field>
+                        <field name="arch" type="xml">
+                                <form string="New Bil">
+                                        <sheet>
+                                                <group>
+                                                        <group>
+                                                                <field name="customer_name"/>
+                                                                <field name="email"/>        
+                                                                <field name="conatact_no"/>  
+                                                                <field name="bill_id"/>
+                                                                <field name="amount"/>
+                                                        </group>
+                                                </group>
+                                        </sheet>
+                                </form>
+                        </field>
+                </record>
+                <record id="tree_bill_detail" model="ir.ui.view">
+                        <field name="name">tree.bill.detail</field>
+                        <field name="model">make.bill</field>
+                        <field name="arch" type="xml">
+                                <tree string="Registration">
+                                        <field name="customer_name"/>   
+                                        <field name="email"/>
+                                        <field name="conatact_no"/>
+                                        <field name="bill_id"/>
+                                        <field name="amount"/>
+                                </tree>
+                        </field>
+                </record>
+                <record id="new_bill_detail" model="ir.actions.act_window">
+                        <field name="name">Bill</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">make.bill</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="menu_bill_view" name="New Bill" sequence="4" action="new_bill_detail" parent="menu_discount"/>
+	</data>
+</odoo>
