@@ -38,7 +38,7 @@
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">make.company</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,kanban</field>
 		</record>
 		<menuitem id="menu_company_view" name="New Company" sequence="3" action="new_company_detail" parent="menu_discount"/>
 	</data>
