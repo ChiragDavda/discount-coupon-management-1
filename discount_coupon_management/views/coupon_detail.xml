@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="tree_coupon_detail" model="ir.ui.view">
+			<field name="name">tree.coupon.detail</field>
+			<field name="model">coupon.detail</field>
+			<field name="arch" type="xml">
+				<tree string="Registration">
+					<field name="company_name"/>
+					<field name="coupon_title"/>
+					<field name="coupon_id"/>
+					<field name="type_coupon"/>
+					<field name="start_from"/>
+					<field name="valid_to"/>
+					<field name="redeem"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Kanban view Modify -->
+		<record id="change_kanban" model="ir.ui.view">
+			<field name="name">Change_kanban</field>
+			<field name="model">coupon.detail</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<!-- <field name="company_name"/>
+					<field name="coupon_title"/>
+					<field name="coupon_id"/>
+					<field name="type_coupon"/>
+					<field name="start_from"/>
+					<field name="valid_to"/>
+					<field name="redeem"/> -->
+					<templates>
+						<t t-name="kanban-box">
+							<div>
+								Company Name:
+								<b><field name="company_name"/></b>
+								<ul>
+									<li>Coupon Name:
+								<b><field name="coupon_title"/></b></li>
+								<li>Coupon Code:
+								<b><field name="coupon_id"/></b></li>
+								<li>Coupon type:
+								<b><field name="type_coupon"/></b></li>
+								<li>From::
+								<b><field name="start_from"/></b></li>
+								<li>To:
+								<b><field name="valid_to"/></b></li>
+								</ul>								
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+		<!-- End Kanbab view -->
+
+
+		<record id="data_discount_coupon" model="ir.actions.act_window">
+			<field name="name">Coupon</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">coupon.detail</field>			
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>
+
+		<menuitem id="discount_detail_coupon" name="Coupon Detail" sequence="5" action="data_discount_coupon" parent="menu_discount"/>
+	</data>
+</odoo>

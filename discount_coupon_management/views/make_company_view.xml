@@ -8,13 +8,12 @@
                                 <form string="New Company">
                                         <sheet>
                                                 <group>
-                                                        <group>
-                                                                <field name="company_name"/>
-                                                                <field name="address"/>
-                                                                <field name="email"/>        
-                                                                <field name="conatact_no"/>
-                                                                <field name="licence_no"/>
-                                                        </group>
+
+                                                        <field name="name"/>
+                                                        <field name="address"/>
+                                                        <field name="email"/>
+                                                        <field name="conatact_no"/>
+                                                        <field name="licence_no"/>
                                                 </group>
                                         </sheet>
                                 </form>
@@ -25,7 +24,8 @@
                         <field name="model">make.company</field>
                         <field name="arch" type="xml">
                                 <tree string="Registration">
-                                        <field name="company_name"/>
+                                        
+                                        <field name="name"/>
                                         <field name="address"/>
                                         <field name="email"/>
                                         <field name="conatact_no"/>
@@ -38,7 +38,7 @@
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">make.company</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree,kanban</field>
+			<field name="view_mode">tree,form,kanban</field>
 		</record>
 		<menuitem id="menu_company_view" name="New Company" sequence="3" action="new_company_detail" parent="menu_discount"/>
 	</data>
