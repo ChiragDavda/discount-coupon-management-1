@@ -19,6 +19,7 @@
 		'report/wizard_action_report_coupon_detail.xml',
 		'wizard/wizard_coupon_data.xml',
 		'security/ir.model.access.csv',
+		'security/account_security.xml',
 		],
 	'demo':[],
 	'qweb':[],

@@ -7,7 +7,7 @@
             model="coupon.detail"
             report_type="qweb-pdf"
             file="discount_coupon_management.report_couopn_detail"
-            name="discount_coupon_management.report_couopn_detail"            
+            name="discount_coupon_management.report_couopn_detail" 
             />
             <!-- in file first is modle name and after . id which we require to pass in template -->
             <report 

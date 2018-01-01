@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="module_coupon_category" model="ir.module.category">
+        <field name="name">Coupon</field>
+     </record>
+	<record id="coupon_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_coupon_category"/>        
+    </record>
+    <record id="coupon_group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_coupon_category"/>        
+    </record>
+</odoo>

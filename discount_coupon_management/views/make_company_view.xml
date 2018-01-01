@@ -74,6 +74,6 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">kanban,tree,form</field>
 		</record>
-		<menuitem id="menu_company_view" name="New Company" sequence="3" action="new_company_detail" parent="menu_discount"/>
+		<menuitem id="menu_company_view" name="New Company" sequence="3" action="new_company_detail" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager"/>
 	</data>
 </odoo>

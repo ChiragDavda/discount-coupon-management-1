@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-		
+	
 		<record id="tree_coupon_detail" model="ir.ui.view">
 			<field name="name">tree.coupon.detail</field>
 			<field name="model">coupon.detail</field>
@@ -9,7 +9,7 @@
 				<tree string="Registration">
 					<field name="company_name"/>
 					<field name="coupon_title"/>
-					<field name="coupon_id"/>
+					<field name="coupon_id" groups="discount_coupon_management.coupon_group_manager"/>
 					<field name="type_coupon"/>
 					<field name="start_from"/>
 					<field name="valid_to"/>
@@ -17,7 +17,7 @@
 				</tree>
 			</field>
 		</record>
-
+	
 		<!-- Kanban view Modify -->
 		<record id="change_kanban" model="ir.ui.view">
 			<field name="name">Change_kanban</field>
@@ -35,7 +35,7 @@
 											<li>Coupon Name:
 										<b><field name="coupon_title"/></b></li>
 										<li>Coupon Code:
-										<b><field name="coupon_id"/></b></li>
+										<b><field name="coupon_id" groups="discount_coupon_management.coupon_group_manager"/></b></li>
 										<li>Coupon type:
 										<b><field name="type_coupon"/></b></li>
 										<li>From::
@@ -64,6 +64,7 @@
 			<field name="view_mode">tree,form,kanban</field>
 		</record>
 
-		<menuitem id="discount_detail_coupon" name="Coupon Detail" sequence="5" action="data_discount_coupon" parent="menu_discount"/>
+		<menuitem id="discount_detail_coupon" name="Coupon Detail" sequence="5" action="data_discount_coupon" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager"/>
+		<!-- groups="discount_coupon_management.fleet_group_manager" -->
 	</data>
 </odoo>
