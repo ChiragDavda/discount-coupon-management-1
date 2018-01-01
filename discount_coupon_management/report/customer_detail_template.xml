@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_coustomer_detail">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout" t-lang="en_US">
+	        <table width="100%" border="1px solid">
+	            <tr colspan="5">
+	                <td class="text-center"><b>Customer Details</b></td>
+	            </tr>
+	        </table>
+	        <table width="100%">
+	            <tr>
+	            	<th class="text-center">Customer Name:</th>
+	                <th class="text-center">Email Address:</th>
+	                <th class="text-center">Contact No:</th>
+	                <th class="text-center">Couopn Code:</th>
+	                <th class="text-center">Bill Id:</th>
+	                <th class="text-center">Purchase Amount:</th>
+	            </tr>
+	            <t t-foreach="docs" t-as="doc">
+	                <tr width="100%">
+	                        <td class="text-center"><t t-esc="doc.customer_name"/></td>
+	                        <td class="text-center"><t t-esc="doc.email"/></td>
+	                        <td class="text-center"><t t-esc="doc.conatact_no"/></td>
+	                        <td class="text-center"><t t-esc="doc.coupon_code"/></td>
+	                        <td class="text-center"><t t-esc="doc.bill_id"/></td>
+	                        <td class="text-center"><t t-esc="doc.amount"/></td>
+	                </tr>
+            	</t>
+	        </table>
+    	</t>
+	</t>
+</template>
+</odoo>

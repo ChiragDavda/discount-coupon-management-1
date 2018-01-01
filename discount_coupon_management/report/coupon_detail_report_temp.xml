@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_couopn_detail">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+        <table width="100%" border="1px solid">
+            <tr colspan="5">
+                <td class="text-center"><b>Coupon Details</b></td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tr>
+                <!-- <th class="text-center">Company Name:</th> -->
+                <th class="text-center">Coupon Name:</th>
+                <th class="text-center">Coupon Type:</th>
+                <th class="text-center">Coupon Code:</th>
+                <th class="text-center">From:</th>
+                <th class="text-center">Upto:</th>
+            </tr>
+            
+            <t t-foreach="docs" t-as="doc">
+                <tr width="100%">
+                        <td class="text-center"><t t-esc="doc.company_name.name"/></td>
+                        <!-- Here doc require and company_name means our field name but it connect with other module make.company so we require to pass that field name from where it get relationship name and give that name with .(dot) -->
+                        <td class="text-center"><t t-esc="doc.coupon_title"/></td>
+                        <td class="text-center"><t t-esc="doc.type_coupon"/></td>
+                        <td class="text-center"><t t-esc="doc.coupon_id"/></td>
+                        <td class="text-center"><t t-esc="doc.start_from"/></td>
+                        <td class="text-center"><t t-esc="doc.valid_to"/></td>
+                    </tr>
+                <!-- <t t-call="discount_coupon_management.view_report_couopn_detail" /> -->
+            </t>
+            </table>
+        </t>
+    </t>
+</template>
+</odoo>
