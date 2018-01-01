@@ -3,7 +3,7 @@ from odoo import api,fields, models
 
 class CouponDetail(models.Model):
 	#_inherit="res.partner"
-	_inherit = 'sale.order'
+	
 	_name="coupon.detail"
 	_rec_name="coupon_id"
 	_description="Discount Coupon Detail"	

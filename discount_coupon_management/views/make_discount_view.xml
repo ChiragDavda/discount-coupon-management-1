@@ -9,8 +9,7 @@
 					<sheet>
 						<group>
 							<group>
-								<field name="company_name">									
-								</field>
+								<field name="company_name"/>													
 								<field name="coupon_title"/>
 								<field name="customer_name"/>
 								<field name="coupon_bunch"/>
@@ -35,17 +34,54 @@
 					<field name="coupon_title"/>
 					<field name="customer_name"/>
 					<field name="coupon_bunch"/>
+					<field name="start_date"/>
 					<field name="valid_date"/>
 					<field name="offer"/>
 				</tree>
 			</field>
 		</record>
+		<!-- Start kanban Change -->
+		<record id="change_kanban_Discount" model="ir.ui.view">
+			<field name="name">Change_kanban</field>
+			<field name="model">make.discount.coupon</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<templates>
+						<t t-name="kanban-box">
+							<div t-attf-class="oe_kanban_global_click">
+								  <div class="oe_kanban_vignette oe_semantic_html_override">
+                                    <div class="oe_kanban_details">
+										Company Name:
+										<b><span><field name="company_name"/></span></b>	
+										<ul>
+											<li>Coupon Name:
+										<b><field name="coupon_title"/></b></li>
+										<li>Customer Name:
+										<b><field name="customer_name"/></b></li>
+										<li>Coupon Bunch:
+										<b><field name="coupon_bunch"/></b></li>
+										<li>From:<b><field name="start_date"/></b></li>
+										<li>Valid Date:
+										<b><field name="valid_date"/></b></li>
+										<li>Offer Name:
+										<b><field name="offer"/></b></li>
+										</ul>					
+									</div>
+								</div>
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+		<!-- End Kanban Change -->
+
 		<record id="new_discount_coupon_detail" model="ir.actions.act_window">
 			<field name="name">Coupon</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">make.discount.coupon</field>			
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form,kanban</field>
+			<field name="view_mode">kanban,tree,form</field>
 		</record>
 		<menuitem id="menu_discount" name="Coupon" sequence="1"/>
 		<menuitem id="make_discount_coupon" name="New Coupon" sequence="2" action="new_discount_coupon_detail" parent="menu_discount"/>

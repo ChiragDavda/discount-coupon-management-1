@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_coupon_detail"
+            string="Coupon Details"
+            model="coupon.detail"
+            report_type="qweb-pdf"
+            file="discount_coupon_management.report_couopn_detail"
+            name="discount_coupon_management.report_couopn_detail"            
+            />
+            <!-- in file first is modle name and after . id which we require to pass in template -->
+            <report 
+            id="action_report_customer_detail"
+            string="Coustomer Details"
+            model="make.bill"
+            report_type="qweb-pdf"
+            file="discount_coupon_management.report_coustomer_detail"
+            name="discount_coupon_management.report_coustomer_detail"            
+            />
+
+            <report
+            id="wizard_action_report_coupon_detail"
+            string="Coupon Details with wizard"
+            model="coupon.detail"
+            report_type="qweb-pdf"
+            file="discount_coupon_management.wizard_report_couopndetail"
+            name="discount_coupon_management.wizard_report_couopndetail"
+            menu="False"
+            />
+    </data>
+</odoo>

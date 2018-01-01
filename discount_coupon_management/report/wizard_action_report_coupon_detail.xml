@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="wizard_report_couopndetail">		
+    <t t-call="web.html_container">    	
+        <t t-call="web.internal_layout">
+             <div class="page">
+             	
+                 <h1>Couopon Detils:</h1>                 
+                 
+                   <table class="table table-bordered mb32" style="table-layout:auto;border:1px solid;">
+                    <thead>
+                        <tr>
+                            <th>Company Name:</th>
+                            <th>Coupon Name:</th>
+                            <th>Coupon Code:</th>
+                            <th>Coupon Type:</th>
+                            <th>From:</th>
+                            <th>To:</th>                            
+                        </tr>
+                        <t t-foreach="docs" t-as="doc">
+	                        <tr>
+	                        	<td class="text-center"><t t-esc="doc.company_name.name"/></td>
+	                        	<td class="text-center"><t t-esc="doc.coupon_title"/></td>
+		                        <td class="text-center"><t t-esc="doc.type_coupon"/></td>
+		                        <td class="text-center"><t t-esc="doc.coupon_id"/></td>
+		                        <td class="text-center"><t t-esc="doc.start_from"/></td>
+		                        <td class="text-center"><t t-esc="doc.valid_to"/></td>
+
+	                        </tr>
+                    	</t>
+                    </thead>
+                   </table>
+             </div>
+        </t>
+    </t>
+</template>
+</odoo>

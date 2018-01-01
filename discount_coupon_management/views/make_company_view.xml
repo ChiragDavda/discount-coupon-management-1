@@ -33,12 +33,46 @@
                                 </tree>
                         </field>
                 </record>
+
+                <!-- Change Kanban view -->
+                <record id="change_kanban_Company" model="ir.ui.view">
+                        <field name="name">Change_kanban</field>
+                        <field name="model">make.company</field>
+                        <field name="arch" type="xml">
+                                <kanban>
+                                        <templates>
+                                                <t t-name="kanban-box">
+                                                        <div t-attf-class="oe_kanban_global_click">
+                                                                  <div class="oe_kanban_vignette oe_semantic_html_override">
+                                    <div class="oe_kanban_details">
+                                                                                Company Name:
+                                                                                <b><span><field name="name"/></span></b>        
+                                                                                <ul>
+                                                                                        <li>Address:
+                                                                                <b><field name="address"/></b></li>
+                                                                                <li>Email Address:
+                                                                                <b><field name="email"/></b></li>
+                                                                                <li>Contact No:
+                                                                                <b><field name="conatact_no"/></b></li>
+                                                                                <li>Lisence No:
+                                                                                <b><field name="licence_no"/></b></li>
+                                                                                </ul>                                   
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </t>
+                                        </templates>
+                                </kanban>
+                        </field>
+                </record>
+                <!-- End Change of kanban view -->
+
                 <record id="new_company_detail" model="ir.actions.act_window">
                         <field name="name">Company</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">make.company</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form,kanban</field>
+			<field name="view_mode">kanban,tree,form</field>
 		</record>
 		<menuitem id="menu_company_view" name="New Company" sequence="3" action="new_company_detail" parent="menu_discount"/>
 	</data>

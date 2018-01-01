@@ -24,36 +24,34 @@
 			<field name="model">coupon.detail</field>
 			<field name="arch" type="xml">
 				<kanban>
-					<!-- <field name="company_name"/>
-					<field name="coupon_title"/>
-					<field name="coupon_id"/>
-					<field name="type_coupon"/>
-					<field name="start_from"/>
-					<field name="valid_to"/>
-					<field name="redeem"/> -->
 					<templates>
 						<t t-name="kanban-box">
-							<div>
-								Company Name:
-								<b><field name="company_name"/></b>
-								<ul>
-									<li>Coupon Name:
-								<b><field name="coupon_title"/></b></li>
-								<li>Coupon Code:
-								<b><field name="coupon_id"/></b></li>
-								<li>Coupon type:
-								<b><field name="type_coupon"/></b></li>
-								<li>From::
-								<b><field name="start_from"/></b></li>
-								<li>To:
-								<b><field name="valid_to"/></b></li>
-								</ul>								
+							<div t-attf-class="oe_kanban_global_click">
+								  <div class="oe_kanban_vignette oe_semantic_html_override">
+                                    <div class="oe_kanban_details">
+										Company Name:
+										<b><span><field name="company_name"/></span></b>	
+										<ul>
+											<li>Coupon Name:
+										<b><field name="coupon_title"/></b></li>
+										<li>Coupon Code:
+										<b><field name="coupon_id"/></b></li>
+										<li>Coupon type:
+										<b><field name="type_coupon"/></b></li>
+										<li>From::
+										<b><field name="start_from"/></b></li>
+										<li>To:
+										<b><field name="valid_to"/></b></li>
+										</ul>					
+									</div>
+								</div>
 							</div>
 						</t>
 					</templates>
 				</kanban>
 			</field>
 		</record>
+		<!-- t-attf-class="record.company_name.raw_value" -->
 
 		<!-- End Kanbab view -->
 

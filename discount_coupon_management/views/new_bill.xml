@@ -35,12 +35,45 @@
                                 </tree>
                         </field>
                 </record>
+                <!-- Start Change Kanban -->
+                <record id="change_kanban_bill" model="ir.ui.view">
+                        <field name="name">Change_kanban</field>
+                        <field name="model">make.bill</field>
+                        <field name="arch" type="xml">
+                                <kanban>
+                                        <templates>
+                                                <t t-name="kanban-box">
+                                                        <div t-attf-class="oe_kanban_global_click">
+                                                                  <div class="oe_kanban_vignette oe_semantic_html_override">
+                                    <div class="oe_kanban_details">
+                                                                                Customer Name:
+                                                                                <b><span><field name="customer_name"/></span></b>        
+                                                                                <ul>
+                                                                                        <li>Email Address:
+                                                                                <b><field name="email"/></b></li>
+                                                                                <li>Contact No.<b><field name="conatact_no"/></b></li>
+                                                                                <li>Coupon Code:
+                                                                                <b><field name="coupon_code"/></b></li>
+                                                                                <li>Bill Id:
+                                                                                <b><field name="bill_id"/></b></li>
+                                                                                <li>Amount:
+                                                                                <b><field name="amount"/></b></li>
+                                                                                </ul>          
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </t>
+                                        </templates>
+                                </kanban>
+                        </field>
+                </record>
+                <!-- End Change Kanban -->
                 <record id="new_bill_detail" model="ir.actions.act_window">
                         <field name="name">Bill</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">make.bill</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form,kanban</field>
+			<field name="view_mode">kanban,tree,form</field>
 		</record>
 		<menuitem id="menu_bill_view" name="New Bill" sequence="4" action="new_bill_detail" parent="menu_discount"/>
 	</data>
