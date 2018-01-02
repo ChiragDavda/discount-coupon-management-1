@@ -9,16 +9,16 @@
 					<sheet>
 						<group>
 							<group>
-								<field name="company_name"/>													
-								<field name="coupon_title"/>
-								<field name="customer_name"/>
+								<field name="company_name"/>											
+								<field name="coupon_title" required="1"/>
+								<field name="customer_name" required="1"/>
 								<field name="coupon_bunch"/>
 							</group>
 							<group>
 								<field name="coupon_type"/>
 								<field name="start_date"/>
 								<field name="valid_date"/>
-								<field name="offer"/>
+								<field name="offer" required="1"/>
 							</group>
 						</group>
 					</sheet>

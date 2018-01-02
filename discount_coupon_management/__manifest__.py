@@ -20,7 +20,9 @@
 		'report/wizard_action_report_coupon_detail.xml',
 		'wizard/wizard_coupon_data.xml',
 		],
-	'demo':[],
+	'demo':[
+		#'demo/discount_coupon.xml',
+	],
 	'qweb':[],
 	'installable':True,
 	'auto_install':False,

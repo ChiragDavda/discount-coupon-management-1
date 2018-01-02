@@ -9,7 +9,7 @@ class MakeDiscountCoupon(models.Model):
 	_description="Making Discount Coupon Detail"
 	company_name=fields.Many2one('make.company',string="Company Name:")
 	#company_name=fields.Char(string='Company Name:',required=True)
-	coupon_title=fields.Char(string='Coupon Title:',required=True)
+	coupon_title=fields.Char(string='Coupon Title:')
 	customer_name=fields.Char(string='Customer Name:')
 	coupon_bunch=fields.Selection([
 		('50','50'),
@@ -26,7 +26,7 @@ class MakeDiscountCoupon(models.Model):
 		])
 	start_date=fields.Date(string="Starting From")
 	valid_date=fields.Date(string="Valid Upto:")
-	offer=fields.Char(string="Scheme Name:",required=True)
+	offer=fields.Char(string="Scheme Name:")
 	
 	@api.constrains('coupon_type')
 	def check_date(self):

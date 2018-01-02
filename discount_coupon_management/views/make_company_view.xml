@@ -9,11 +9,11 @@
                                         <sheet>
                                                 <group>
 
-                                                        <field name="name"/>
-                                                        <field name="address"/>
-                                                        <field name="email"/>
-                                                        <field name="conatact_no"/>
-                                                        <field name="licence_no"/>
+                                                        <field name="name" required="1"/>
+                                                        <field name="address" required="1"/>
+                                                        <field name="email" required="1"/>
+                                                        <field name="conatact_no" required="1"/>
+                                                        <field name="licence_no" required="1"/>
                                                 </group>
                                         </sheet>
                                 </form>
