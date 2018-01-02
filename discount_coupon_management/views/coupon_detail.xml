@@ -64,7 +64,7 @@
 			<field name="view_mode">tree,form,kanban</field>
 		</record>
 
-		<menuitem id="discount_detail_coupon" name="Coupon Detail" sequence="5" action="data_discount_coupon" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager"/>
+		<menuitem id="discount_detail_coupon" name="Coupon Detail" sequence="5" action="data_discount_coupon" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager" />
 		<!-- groups="discount_coupon_management.fleet_group_manager" -->
 	</data>
 </odoo>

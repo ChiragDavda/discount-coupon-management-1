@@ -30,6 +30,6 @@
     </record>
 
     <menuitem id="menu_coupon_details_report" name="Coupon Details Report"
-              action="action_coupon_details_report" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager"/>
+              action="action_coupon_details_report" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager" />
 
 </odoo>

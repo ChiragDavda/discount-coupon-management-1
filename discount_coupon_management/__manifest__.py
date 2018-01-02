@@ -7,6 +7,8 @@
 	'depends':[
 	'web',],
 	'data':[
+		'security/account_security.xml',
+		'security/ir.model.access.csv',
 		'wizard/change_coupon_detail.xml',
 		'views/make_discount_view.xml',
 		'views/make_company_view.xml',
@@ -15,11 +17,8 @@
 		'report/coupon_detail_report.xml',
 		'report/coupon_detail_report_temp.xml',
 		'report/customer_detail_template.xml',
-		#'report/customer_detail.xml',
 		'report/wizard_action_report_coupon_detail.xml',
 		'wizard/wizard_coupon_data.xml',
-		'security/ir.model.access.csv',
-		'security/account_security.xml',
 		],
 	'demo':[],
 	'qweb':[],
