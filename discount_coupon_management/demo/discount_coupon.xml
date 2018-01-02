@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="company_value_1" model="make.company">
+    		<field name="name">TCS</field>
+    		<field name="address">Ahmedabad</field>
+    		<field name="email">tcs@gmail.com</field>
+    		<field name="conatact_no">1231231231</field>
+    		<field name="licence_no">AEQ14AD</field>
+    	</record>
+        
+        <function id="phone_check_1" model="make.company" name="check_phone_no" eval="[ref('company_value_1')]"/>
+        <function id="email_check_1" model="make.company" name="check_email" eval="[ref('company_value_1')]"/>
+
+    	<record id="coupon_value_1" model="make.discount.coupon">
+    		<field name="company_name" ref="discount_coupon_management.company_value_1"/>
+    		<field name="coupon_title">WinnterSale</field>
+    		<field name="customer_name">Maheshkumar</field>
+    		<field name="coupon_bunch">100</field>
+    		<field name="coupon_type">seasson</field>
+    		<field name="start_date">2018-01-01</field>
+    		<field name="valid_date">2018-02-01</field>
+    		<field name="offer">10%off.</field>
+    	</record>
+
+        
+        
+    	<record id="bill_value_1" model="make.bill">
+            <field name="customer_name">Chirag</field>
+            <field name="email">chirag@gmail.com</field>
+            <field name="conatact_no">1234567890</field>
+            <field name="coupon_code">z13824</field>
+            <field name="bill_id">111</field>
+            <field name="amount">1500</field>
+    	</record>
+
+        <function id="phone_check_2" model="make.bill" name="check_phone_no" eval="[ref('bill_value_1')]"/>
+        <function id="email_check_2" model="make.bill" name="check_email" eval="[ref('bill_value_1')]"/>
+        <!-- <function id="coupon_check_1" model="make.bill" name="check_coupon" eval="[ref('bill_value_1')]" />-->
+    </data>
+</odoo>

@@ -16,7 +16,7 @@ class MakeCompany(models.Model):
 
 	@api.constrains('conatact_no')
 	def check_phone_no(self):
-		if not re.match("[0-9]{7,10}",self.conatact_no):
+		if not re.match("[0-9]{10}",self.conatact_no):
 			raise ValidationError(_('Mobile number must be 10 digits!!!'))
 
 	@api.constrains('email')

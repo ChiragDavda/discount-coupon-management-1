@@ -4,6 +4,7 @@ from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationE
 import string as st
 import random
 from datetime import date
+
 class MakeDiscountCoupon(models.Model):
 	_name="make.discount.coupon"
 	_description="Making Discount Coupon Detail"
@@ -54,6 +55,8 @@ class MakeDiscountCoupon(models.Model):
 		return obj
 
 	def get_diff_date(self):
+		self.start_date=str(self.start_date)
+		self.valid_date=str(self.valid_date)
 		lst1=self.start_date.split("-")
 		lst2=self.valid_date.split("-")
 		sdate=date(int(lst1[0]),int(lst1[1]),int(lst1[2]))

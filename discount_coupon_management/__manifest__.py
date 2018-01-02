@@ -21,7 +21,7 @@
 		'wizard/wizard_coupon_data.xml',
 		],
 	'demo':[
-		#'demo/discount_coupon.xml',
+		'demo/discount_coupon.xml',
 	],
 	'qweb':[],
 	'installable':True,

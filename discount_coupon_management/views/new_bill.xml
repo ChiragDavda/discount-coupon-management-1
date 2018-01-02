@@ -9,12 +9,12 @@
                                         <sheet>
                                                 <group>
                                                         <group>
-                                                                <field name="customer_name"/>
-                                                                <field name="email" widget="email"/>        
-                                                                <field name="conatact_no" widget="phone"/>
-                                                                <field name="coupon_code"/>  
-                                                                <field name="bill_id"/>
-                                                                <field name="amount"/>
+                                                                <field name="customer_name" required="1"/>
+                                                                <field name="email" widget="email" required="1"/>        
+                                                                <field name="conatact_no" widget="phone" required="1"/>
+                                                                <field name="coupon_code" required="1"/>  
+                                                                <field name="bill_id" required="1"/>
+                                                                <field name="amount" required="1"/>
                                                         </group>
                                                 </group>
                                         </sheet>
