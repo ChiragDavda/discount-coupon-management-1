@@ -3,7 +3,7 @@ from odoo import api,fields, models,_
 from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationError, Warning
 import string as st
 import random
-from datetime import date
+from datetime import date,datetime
 
 class MakeDiscountCoupon(models.Model):
 	_name="make.discount.coupon"
@@ -41,7 +41,7 @@ class MakeDiscountCoupon(models.Model):
 
 	@api.constrains('valid_date')
 	def check_valid_date(self):		
-		if self.start_date > self.valid_date:
+		if str(self.start_date) > str(self.valid_date):
 			raise ValidationError(_("Ending date will be bigger than starting Date!!!"))
 
 
@@ -50,7 +50,7 @@ class MakeDiscountCoupon(models.Model):
 		obj=super(MakeDiscountCoupon,self).create(values)
 		obj1=self.env['coupon.detail']
 		for i in range(int(values['coupon_bunch'])):
-			code=str(random.choice(st.ascii_letters))+str(i**3)
+			code=str(random.choice(st.ascii_letters))+str(i**3)			
 			obj1.create({'company_name':values['company_name'],'coupon_title':values['coupon_title'],'coupon_id':code,'redeem':False,'type_coupon':values['coupon_type'],'start_from':values['start_date'],'valid_to':values['valid_date']})
 		return obj
 

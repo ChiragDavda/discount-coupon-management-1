@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+    <data noupdate="1">
     	<record id="company_value_1" model="make.company">
     		<field name="name">TCS</field>
     		<field name="address">Ahmedabad</field>
@@ -18,24 +18,36 @@
     		<field name="customer_name">Maheshkumar</field>
     		<field name="coupon_bunch">100</field>
     		<field name="coupon_type">seasson</field>
-    		<field name="start_date">2018-01-01</field>
-    		<field name="valid_date">2018-02-01</field>
+            <field name="start_date" eval="(datetime.strptime('2018-01-01','%Y-%m-%d').strftime('%Y-%m-%d'))"></field>
+            <field name="valid_date" eval="(datetime.strptime('2018-02-01','%Y-%m-%d').strftime('%Y-%m-%d'))"></field>
+    		<!-- <field name="start_date" eval="datetime.strftime(datetime.strptime('2018-01-01','%Y-%m-%d'),'%Y-%m-%d')"></field>
+    		<field name="valid_date" eval="datetime.strftime(datetime.strptime('2018-02-01','%Y-%m-%d'),'%Y-%m-%d')"></field> -->
     		<field name="offer">10%off.</field>
     	</record>
 
         
-        
-    	<record id="bill_value_1" model="make.bill">
+        <!-- <function id="check_date_1" name="check_valid_date" model="make.discount.coupon" eval="ref('coupon_value_1')"/> -->
+
+    	<record id="coupon_detail_1" model="coupon.detail">
+            <field name="company_name" ref="discount_coupon_management.company_value_1"></field>
+            <field name="coupon_title">WinnterSale</field>
+            <field name="coupon_id">111aaAa11</field>
+            <field name="redeem" eval="False"></field>
+            <field name="type_coupon">seasson</field>
+            <field name="start_from">2018-01-01</field>
+            <field name="valid_to">2018-02-01</field>
+        </record>
+
+        <record id="bill_value_1" model="make.bill">
             <field name="customer_name">Chirag</field>
             <field name="email">chirag@gmail.com</field>
             <field name="conatact_no">1234567890</field>
-            <field name="coupon_code">z13824</field>
+            <field name="coupon_code">111aaAa11</field>
             <field name="bill_id">111</field>
             <field name="amount">1500</field>
     	</record>
 
         <function id="phone_check_2" model="make.bill" name="check_phone_no" eval="[ref('bill_value_1')]"/>
         <function id="email_check_2" model="make.bill" name="check_email" eval="[ref('bill_value_1')]"/>
-        <!-- <function id="coupon_check_1" model="make.bill" name="check_coupon" eval="[ref('bill_value_1')]" />-->
     </data>
 </odoo>
