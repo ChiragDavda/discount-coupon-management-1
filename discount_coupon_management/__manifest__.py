@@ -19,6 +19,7 @@
 		'report/customer_detail_template.xml',
 		'report/wizard_action_report_coupon_detail.xml',
 		'wizard/wizard_coupon_data.xml',
+		'wizard/change_coupon_item.xml'
 		],
 	'demo':[
 		'demo/discount_coupon.xml',

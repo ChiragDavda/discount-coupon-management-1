@@ -12,14 +12,7 @@ class MakeDiscountCoupon(models.Model):
 	#company_name=fields.Char(string='Company Name:',required=True)
 	coupon_title=fields.Char(string='Coupon Title:')
 	customer_name=fields.Char(string='Customer Name:')
-	coupon_bunch=fields.Selection([
-		('50','50'),
-		('100','100'),
-		('200','200'),
-		('300','300'),
-		('400','400'),
-		('500','500'),
-		])
+	coupon_bunch=fields.Integer()
 	coupon_type=fields.Selection([
 		('seasson','Seassonly'),
 		('silver','Silver'),
