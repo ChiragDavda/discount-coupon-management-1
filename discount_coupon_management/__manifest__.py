@@ -5,7 +5,7 @@
 	'summary':'Manage Discount Coupon',
 	'description':"""This is description for Discount Coupon Management!!! """,
 	'depends':[
-	'web',],
+	'web','mail'],
 	'data':[
 		'security/account_security.xml',
 		'security/ir.model.access.csv',
@@ -13,6 +13,7 @@
 		'views/make_discount_view.xml',
 		'views/make_company_view.xml',
 		'views/new_bill.xml',
+		'views/email_templates.xml',
 		'views/coupon_detail.xml',
 		'report/coupon_detail_report.xml',
 		'report/coupon_detail_report_temp.xml',

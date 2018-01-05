@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="session_details_changes" model="mail.template">
+            <field name="name">Registration details - Send by Email</field>
+            <field name="email_from">${(user.email or '')|safe}</field>
+            <field name="email_to">${email}</field>
+            <!-- <field name="email_to">chiragdavda007@gmail.com</field> -->
+            <!-- <field name="subject" ></field> -->
+            <!-- <field name="subject" eval="Registration in Coupon Management.."></field> -->
+            <field name="model_id" ref="discount_coupon_management.model_make_company"/>
+            <!-- <field name="auto_delete" eval="False"/> -->
+            <field name="body_html"><![CDATA[
+            <ul class="o_mail_thread_message_tracking">
+                <li>
+                    Coupon Name:
+                        <span>${name}</span>
+                </li>
+                <li>
+                    Email address:
+                        <span> ${email} </span>
+                </li>
+                <li>
+                    Lisence No:
+                        <span> ${licence_no} </span>
+                </li>                
+       		</ul>
+            ]]></field>
+        </record>
+    </data>
+</odoo>

@@ -5,7 +5,7 @@ from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationE
 class MakeCompany(models.Model):
 	_name="make.company"
 	_description="Register New Company!!!"
-	
+	_inherit = ['mail.thread']
 	name=fields.Char(string="Company Name:")
 	#name=fields.One2many('coupon.detail','company_name',string="Company Name:")
 	address=fields.Text(string="Address:")
@@ -23,3 +23,19 @@ class MakeCompany(models.Model):
 	def check_email(self):
 		if not re.match("[^@]+@[^@]+\.[^@]+",self.email):
 			raise ValidationError(_('Email Address is not valid!!!'))
+
+	@api.multi
+	def notify_user(self):
+		template=self.env.ref('discount_coupon_management.session_details_changes',raise_if_not_found=False)
+		print("\n\n>>>>>>>>>>>>>>>>\n\n",template)
+		template.send_mail(self.id)
+
+	@api.model
+	def create(self,values):
+		obj=super(MakeCompany,self).create(values)
+		self.notify_user()
+		return obj
+	# @api.one
+ #    def notify_user(self):
+ #    	template = self.env.ref('discount_coupon_management.session_details_changes',raise_if_not_found=False)
+	# 	template.send_mail(self.id)
