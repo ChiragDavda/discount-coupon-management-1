@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-	
+		<record id="redeem_search_view" model="ir.ui.view">
+			<field name="name">redeem.search.view</field>
+        	<field name="model">coupon.detail</field>
+        	<field name="arch" type="xml">
+			<search string="Redeem analysis">				
+				<filter string="Redeem Detail" domain="[('redeem','=',True)]" name="Redeem_coupon"/>
+				<group expand="1" string="Group By">
+					<filter string="Comapnay" name="company_name" context="{'group_by':'company_name'}"/>
+					<separator/>
+					<filter string="Date" context="{'group_by':'valid_to'}"/>
+					<separator/>
+					<filter string="Types of Coupon" context="{'group_by':'type_coupon'}"/>
+				</group>
+			</search>
+		</field>
+		</record>
 		<record id="tree_coupon_detail" model="ir.ui.view">
 			<field name="name">tree.coupon.detail</field>
-			<field name="model">coupon.detail</field>
-			<field name="arch" type="xml">
-				<tree string="Registration">
+			<field name="model">coupon.detail</field>			
+
+			<field name="arch" type="xml">					
+				<tree string="Registration">					
 					<field name="company_name"/>
 					<field name="coupon_title"/>
 					<field name="coupon_id" groups="discount_coupon_management.coupon_group_manager"/>
@@ -61,10 +77,11 @@
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">coupon.detail</field>			
 			<field name="view_type">form</field>
+
 			<field name="view_mode">tree,form,kanban</field>
 		</record>
 
-		<menuitem id="discount_detail_coupon" name="Coupon Detail" sequence="5" action="data_discount_coupon" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager" />
+		<menuitem id="discount_detail_coupon" name="Coupon Detail" sequence="5" action="data_discount_coupon" parent="menu_discount" groups="discount_coupon_management.coupon_group_manager"/>
 		<!-- groups="discount_coupon_management.fleet_group_manager" -->
 	</data>
 </odoo>

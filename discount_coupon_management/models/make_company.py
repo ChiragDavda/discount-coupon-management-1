@@ -7,6 +7,7 @@ class MakeCompany(models.Model):
 	_description="Register New Company!!!"
 	
 	name=fields.Char(string="Company Name:")
+	#name=fields.One2many('coupon.detail','company_name',string="Company Name:")
 	address=fields.Text(string="Address:")
 	email=fields.Char(string="Email Address:")
 	conatact_no=fields.Char(string="Contact Number:")

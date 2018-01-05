@@ -6,24 +6,31 @@
 			<field name="model">make.discount.coupon</field>
 			<field name="arch" type="xml">
 				<form string="New Coupon">
+					<header>
+						<!-- <button string="Working" type="object" name="change_open"></button>
+						<button string="done" type="object" name="change_validate" attrs="{'invisible':[('state','=')]}"></button> -->
+						<field name="state" widget="statusbar"/>
+						<!-- attrs="{'invisible':[('valid_date','>=',datetime.date().now().strftime('%Y-%m-%d'))]}" -->
+					</header>
 					<sheet>
 						<group>
 							<group>
-								<field name="company_name"/>											
 								<field name="coupon_title" required="1"/>
 								<field name="customer_name" required="1"/>
 								<field name="coupon_bunch"/>
+								<field name="coupon_type"/>
 							</group>
 							<group>
-								<field name="coupon_type"/>
 								<field name="start_date"/>
 								<field name="valid_date"/>
 								<field name="offer" required="1"/>
+								<field name="company_name"/>								
 							</group>
 						</group>
 					</sheet>
 				</form>
 			</field>
+			<!-- <field name="name">Coupon.detail.according.company</field> -->
 		</record>
 		<record id="tree_discount_coupon_detail" model="ir.ui.view">
 			<field name="name">tree.discount.coupon.detail</field>
@@ -75,7 +82,24 @@
 			</field>
 		</record>
 		<!-- End Kanban Change -->
-
+		<record id="detail_search_view" model="ir.ui.view">
+			<field name="name">detail.search.view</field>
+        	<field name="model">make.discount.coupon</field>
+        	<field name="arch" type="xml">
+			<search string="Coupon analysis">
+				
+				<group expand="1" string="Group By">
+					<filter string="Comapnay" name="company_name" context="{'group_by':'company_name'}"/>
+					<separator/>
+					<filter string="Date" context="{'group_by':'valid_date'}"/>
+					<separator/>
+					<filter string="Coupon Title" context="{'group_by':'coupon_title'}"/>
+					<separator/>
+					<filter string="Offer" context="{'group_by':'offer'}"/>
+				</group>
+			</search>
+		</field>
+		</record>
 		<record id="new_discount_coupon_detail" model="ir.actions.act_window">
 			<field name="name">Coupon</field>
 			<field name="type">ir.actions.act_window</field>

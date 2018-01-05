@@ -8,6 +8,8 @@ class CouponDetail(models.Model):
 	_sql_constratints=[('Unique Coupon Code','unique(coupon_id)','Please enter unique code.')]
 	_rec_name="coupon_id"
 	_description="Discount Coupon Detail"	
+
+	#state=fields.Selection([('open', 'Waiting for Approval'), ('confirm', 'Approved')], string='Status',default='open')
 	company_name=fields.Many2one('make.company',string="Company Name:")
 	coupon_title=fields.Char(string='Coupon Title:')
 	coupon_id=fields.Char(string="Coupon Code")

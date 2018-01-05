@@ -8,8 +8,10 @@ from datetime import date,datetime
 class MakeDiscountCoupon(models.Model):
 	_name="make.discount.coupon"
 	_description="Making Discount Coupon Detail"
+	
+	state = fields.Selection([('open', 'Continue'), ('confirm', 'Experied')], string='Status',default='open')
 	company_name=fields.Many2one('make.company',string="Company Name:")
-	#company_name=fields.Char(string='Company Name:',required=True)
+	#company_name=fields.Char(string='Company Name:',required=True)	
 	coupon_title=fields.Char(string='Coupon Title:')
 	customer_name=fields.Char(string='Customer Name:')
 	coupon_bunch=fields.Integer()
@@ -56,3 +58,15 @@ class MakeDiscountCoupon(models.Model):
 		vdate=date(int(lst2[0]),int(lst2[1]),int(lst2[2]))
 		diff_date=vdate-sdate
 		return diff_date.days//365
+
+	# @api.multi
+	# def change_open(self):
+	# 	self.write({
+	# 		'state':'open',
+	# 		})
+	
+	# @api.multi
+	# def change_validate(self):
+	# 	self.write({
+	# 		'state':'confirm',
+	# 		})

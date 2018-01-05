@@ -33,7 +33,18 @@
                                 </tree>
                         </field>
                 </record>
-
+                <record id="company_search_view" model="ir.ui.view">
+                    <field name="name">company.search.view</field>
+                    <field name="model">make.company</field>
+                    <field name="arch" type="xml">
+                    <search string="Company analysis">                
+                        <group expand="1" string="Group By">
+                            <filter string="Comapnay" name="name" context="{'group_by':'name'}"/>
+                            <filter string="Address" name="address" context="{'group_by':'address'}"/>
+                        </group>
+                    </search>
+                    </field>
+                </record>
                 <!-- Change Kanban view -->
                 <record id="change_kanban_Company" model="ir.ui.view">
                         <field name="name">Change_kanban</field>
