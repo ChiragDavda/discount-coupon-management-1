@@ -3,8 +3,9 @@ from odoo import api,fields, models
 
 class CouponDetail(models.Model):
 	#_inherit="res.partner"
-	_sql_constratints=[('company_name','coupon_title','UNIQUE(coupon_id)','redeem','type_coupon','start_from','valid_to')]
+	
 	_name="coupon.detail"
+	_sql_constratints=[('Unique Coupon Code','unique(coupon_id)','Please enter unique code.')]
 	_rec_name="coupon_id"
 	_description="Discount Coupon Detail"	
 	company_name=fields.Many2one('make.company',string="Company Name:")
@@ -18,4 +19,8 @@ class CouponDetail(models.Model):
 		])
 	start_from=fields.Date(string="Start From")
 	valid_to=fields.Date(string="Valid upto")
+
+	@api.constrains('coupon_id')
+	def check_couopn_code(self):
+		pass
 

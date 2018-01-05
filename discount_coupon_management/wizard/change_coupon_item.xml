@@ -19,7 +19,7 @@
                 </form>
 			</field>
 		</record>
-		<act_window id="action_set_coupon_view" multi="True"
+		<act_window id="action_set_coupon_view" multi="False"
                     name="Change Coupon Bunch"  res_model="change.coupon.detail" src_model="make.discount.coupon"
 					view_mode="form" target="new" view_type="form"/>
 	</data>

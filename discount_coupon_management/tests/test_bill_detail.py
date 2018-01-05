@@ -14,8 +14,6 @@ class TestBillDetail(common.Common):
 		self.assertNotEquals(self.make_bill.customer_name,"","Value will not be empty!!!")
 
 	def test_date(self):
-		
-		
 		try:
 			if self.make_coupon1.valid_date<datetime.now().date().strftime('%Y-%m-%d'):
 				raise check_date
