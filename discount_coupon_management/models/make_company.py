@@ -6,6 +6,7 @@ class MakeCompany(models.Model):
 	_name="make.company"
 	_description="Register New Company!!!"
 	_inherit = ['mail.thread']
+	value=fields.Char(string='Company Reference', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
 	name=fields.Char(string="Company Name:")
 	#name=fields.One2many('coupon.detail','company_name',string="Company Name:")
 	address=fields.Text(string="Address:")
@@ -31,10 +32,12 @@ class MakeCompany(models.Model):
 		template.send_mail(self.id,force_send=True)
 
 	@api.model
-	def create(self,values):
-		obj=super(MakeCompany,self).create(values)
+	def create(self,values):		
+		values['value']=self.env['ir.sequence'].next_by_code('make.company') or _('New')
+		obj=super(MakeCompany,self).create(values)		
 		obj.notify_user()
 		return obj
+
 	# @api.one
  #    def notify_user(self):
  #    	template = self.env.ref('discount_coupon_management.session_details_changes',raise_if_not_found=False)

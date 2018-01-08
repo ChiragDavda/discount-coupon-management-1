@@ -5,15 +5,15 @@
                         <field name="name">make.company.form</field>
                         <field name="model">make.company</field>
                         <field name="arch" type="xml">
-                                <form string="New Company">
-                                        <sheet>
+                                <form string="New Company">                                    
+                                        <sheet>                                            
                                                 <group>
-
-                                                        <field name="name" required="1"/>
-                                                        <field name="address" required="1"/>
-                                                        <field name="email" required="1"/>
-                                                        <field name="conatact_no" required="1"/>
-                                                        <field name="licence_no" required="1"/>
+                                                    <field name="value"/>
+                                                    <field name="name" required="1"/>
+                                                    <field name="address" required="1"/>
+                                                    <field name="email" required="1"/>
+                                                    <field name="conatact_no" required="1"/>
+                                                    <field name="licence_no" required="1"/>
                                                 </group>
                                         </sheet>
                                 </form>
@@ -24,7 +24,7 @@
                         <field name="model">make.company</field>
                         <field name="arch" type="xml">
                                 <tree string="Registration">
-                                        
+                                        <field name="value"/>
                                         <field name="name"/>
                                         <field name="address"/>
                                         <field name="email"/>
