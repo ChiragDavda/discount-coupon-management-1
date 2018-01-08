@@ -28,12 +28,12 @@ class MakeCompany(models.Model):
 	def notify_user(self):
 		template=self.env.ref('discount_coupon_management.session_details_changes',raise_if_not_found=False)
 		print("\n\n>>>>>>>>>>>>>>>>\n\n",template)
-		template.send_mail(self.id)
+		template.send_mail(self.id,force_send=True)
 
 	@api.model
 	def create(self,values):
 		obj=super(MakeCompany,self).create(values)
-		self.notify_user()
+		obj.notify_user()
 		return obj
 	# @api.one
  #    def notify_user(self):
