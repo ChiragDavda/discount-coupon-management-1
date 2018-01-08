@@ -6,16 +6,17 @@
             <field name="name">Registration details - Send by Email</field>
             <field name="model_id" ref="discount_coupon_management.model_make_company"/>
             <field name="email_from">${(user.email or '')|safe}</field>
-            <field name="email_to">${object.email}</field>
-            <!-- <field name="email_to">chiragdavda007@gmail.com</field> -->
-            <!-- <field name="subject" ></field> -->
-            <!-- <field name="subject" eval="Registration in Coupon Management.."></field> -->
-            
-            <!-- <field name="auto_delete" eval="False"/> -->
+            <field name="email_to">${object.email}</field>            
+            <field name="subject">Registration in  Discount Coupon Management.</field>            
             <field name="body_html"><![CDATA[
+            <p>
+                Welcome,<i>${object.name}</i>!!!
+            </p>
+            <b>Thanks for Register.</b>
+            <p>Your Account details for Make Discount Coupons are below.</p>
             <ul class="o_mail_thread_message_tracking">
                 <li>
-                    Coupon Name:
+                    Compony Name:
                         <span>${object.name}</span>
                 </li>
                 <li>
@@ -27,6 +28,7 @@
                         <span> ${object.licence_no} </span>
                 </li>                
        		</ul>
+            <p>if you have any kind of query or problem then you can contact us on given email address or contact no.</p>
             ]]></field>
         </record>
     </data>
